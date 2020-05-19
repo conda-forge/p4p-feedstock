@@ -1,5 +1,5 @@
 {% set name = "p4p" %}
-{% set version = "3.4.2" %}
+{% set version = "3.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/mdavidsaver/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 4b4a920e28163dc35977f5391ae82b475b7ddf0ee8ab5e05e61669ae3328609e
+  sha256: d7f1dee9aa6b701abc5811af0627bcfd0d0e45d60e35115424ebe2ed6b9c5123
   patches:
     - 0001-py38_windows.patch
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -37,14 +37,14 @@ requirements:
 
 test:
   imports:
-    - p4p 
+    - p4p
 
 about:
   home: http://github.com/mdavidsaver/p4p
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Python bindings for the PVAccess network client and server.'
+  summary: Python bindings for the PVAccess network client and server.
   doc_url: https://mdavidsaver.github.io/p4p/
   dev_url: https://github.com/mdavidsaver/p4p
 
