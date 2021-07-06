@@ -1,5 +1,5 @@
 {% set name = "p4p" %}
-{% set version = "3.5.3" %}
+{% set version = "3.5.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mdavidsaver/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 2e98b11dff7463ca2f75cf880e22d2284e8181b144a8694dbe82d4adaecb8fe5
+  sha256: 42af03661f8c97a58efc410f3d26273a8d162e12c6acc22ba68066c9f814d7c2
 
 build:
   number: 0
@@ -20,7 +20,7 @@ requirements:
   host:
     - python
     - cython
-    - epicscorelibs =7.0.4.99
+    - epicscorelibs =7.0.6.99
     - numpy
     - pip
     - ply
@@ -29,7 +29,7 @@ requirements:
   run:
     - python
     - cython
-    - epicscorelibs =7.0.4.99
+    - epicscorelibs =7.0.6.99
     - nose >=1.1.2
     - {{ pin_compatible('numpy') }}
     - ply
