@@ -20,7 +20,7 @@ requirements:
   host:
     - python
     - cython
-    - epicscorelibs =7.0.4.99
+    - epicscorelibs {{ epicscorelibs }}
     - numpy
     - pip
     - ply
@@ -29,7 +29,7 @@ requirements:
   run:
     - python
     - cython
-    - epicscorelibs =7.0.4.99
+    - epicscorelibs {{ epicscorelibs }}
     - nose >=1.1.2
     - {{ pin_compatible('numpy') }}
     - ply
