@@ -1,11 +1,11 @@
-About p4p
-=========
+About p4p-feedstock
+===================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/p4p-feedstock/blob/main/LICENSE.txt)
 
 Home: http://github.com/mdavidsaver/p4p
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/p4p-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python bindings for the PVAccess network client and server.
 
@@ -31,66 +31,192 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_numpy1.20python3.8.____cpython</td>
+              <td>linux_64_epicscorelibs7.0.4.99.1.2python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_numpy1.20python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_epicscorelibs7.0.4.99.1.2python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_numpy1.20python3.9.____cpython</td>
+              <td>linux_64_epicscorelibs7.0.4.99.1.2python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_numpy1.20python3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_epicscorelibs7.0.4.99.1.2python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_numpy1.21python3.10.____cpython</td>
+              <td>linux_64_epicscorelibs7.0.4.99.1.2python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_numpy1.21python3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_epicscorelibs7.0.4.99.1.2python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_numpy1.20python3.8.____cpython</td>
+              <td>linux_64_epicscorelibs7.0.6.99.2.0python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.20python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_epicscorelibs7.0.6.99.2.0python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_numpy1.20python3.9.____cpython</td>
+              <td>linux_64_epicscorelibs7.0.6.99.2.0python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.20python3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_epicscorelibs7.0.6.99.2.0python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_numpy1.21python3.10.____cpython</td>
+              <td>linux_64_epicscorelibs7.0.6.99.2.0python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.21python3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_epicscorelibs7.0.6.99.2.0python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_numpy1.20python3.8.____cpython</td>
+              <td>linux_64_epicscorelibs7.0.7.99.0.0python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.20python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_epicscorelibs7.0.7.99.0.0python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_numpy1.20python3.9.____cpython</td>
+              <td>linux_64_epicscorelibs7.0.7.99.0.0python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.20python3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_epicscorelibs7.0.7.99.0.0python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64_numpy1.21python3.10.____cpython</td>
+              <td>linux_64_epicscorelibs7.0.7.99.0.0python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.21python3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_epicscorelibs7.0.7.99.0.0python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_epicscorelibs7.0.4.99.1.2python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_epicscorelibs7.0.4.99.1.2python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_epicscorelibs7.0.4.99.1.2python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_epicscorelibs7.0.4.99.1.2python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_epicscorelibs7.0.4.99.1.2python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_epicscorelibs7.0.4.99.1.2python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_epicscorelibs7.0.6.99.2.0python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_epicscorelibs7.0.6.99.2.0python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_epicscorelibs7.0.6.99.2.0python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_epicscorelibs7.0.6.99.2.0python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_epicscorelibs7.0.6.99.2.0python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_epicscorelibs7.0.6.99.2.0python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_epicscorelibs7.0.7.99.0.0python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_epicscorelibs7.0.7.99.0.0python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_epicscorelibs7.0.7.99.0.0python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_epicscorelibs7.0.7.99.0.0python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_epicscorelibs7.0.7.99.0.0python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_epicscorelibs7.0.7.99.0.0python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_epicscorelibs7.0.4.99.1.2python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_epicscorelibs7.0.4.99.1.2python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_epicscorelibs7.0.4.99.1.2python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_epicscorelibs7.0.4.99.1.2python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_epicscorelibs7.0.4.99.1.2python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_epicscorelibs7.0.4.99.1.2python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_epicscorelibs7.0.6.99.2.0python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_epicscorelibs7.0.6.99.2.0python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_epicscorelibs7.0.6.99.2.0python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_epicscorelibs7.0.6.99.2.0python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_epicscorelibs7.0.6.99.2.0python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_epicscorelibs7.0.6.99.2.0python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_epicscorelibs7.0.7.99.0.0python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_epicscorelibs7.0.7.99.0.0python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_epicscorelibs7.0.7.99.0.0python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_epicscorelibs7.0.7.99.0.0python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_epicscorelibs7.0.7.99.0.0python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7812&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/p4p-feedstock?branchName=main&jobName=win&configuration=win%20win_64_epicscorelibs7.0.7.99.0.0python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr>
@@ -223,7 +349,6 @@ Feedstock Maintainers
 =====================
 
 * [@chrisvam](https://github.com/chrisvam/)
-* [@hhslepicka](https://github.com/hhslepicka/)
-* [@jacquelinegarrahan](https://github.com/jacquelinegarrahan/)
+* [@klauer](https://github.com/klauer/)
 * [@valmar](https://github.com/valmar/)
 
