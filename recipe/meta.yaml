@@ -1,5 +1,5 @@
 {% set name = "p4p" %}
-{% set version = "3.5.5" %}
+{% set version = "4.1.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/mdavidsaver/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 0c168ef43db1f3bf103902dc5f3e7b62545e1fa35031a9755ca9059470e493e4
+  sha256: 024115fdd82f233034a7b972599af4d1e988fba33e0f0f2d65efc569780c9a14
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
