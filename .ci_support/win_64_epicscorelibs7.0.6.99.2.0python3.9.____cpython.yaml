@@ -9,7 +9,7 @@ cxx_compiler:
 epicscorelibs:
 - 7.0.6.99.2.0
 numpy:
-- '1.21'
+- '1.22'
 pin_run_as_build:
   python:
     min_pin: x.x
