@@ -8,50 +8,57 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_epicscorelibs7.0.4.99.1.2python3.10.____cpython:
-        CONFIG: linux_64_epicscorelibs7.0.4.99.1.2python3.10.____cpython
+      linux_64_epicscorelibs7.0.4.99.1.2numpy1.22python3.10.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.4.99.1.2numpy1.22python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_epicscorelibs7.0.4.99.1.2python3.8.____cpython:
-        CONFIG: linux_64_epicscorelibs7.0.4.99.1.2python3.8.____cpython
+      linux_64_epicscorelibs7.0.4.99.1.2numpy1.22python3.8.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.4.99.1.2numpy1.22python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_epicscorelibs7.0.4.99.1.2python3.9.____cpython:
-        CONFIG: linux_64_epicscorelibs7.0.4.99.1.2python3.9.____cpython
+      linux_64_epicscorelibs7.0.4.99.1.2numpy1.22python3.9.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.4.99.1.2numpy1.22python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_epicscorelibs7.0.6.99.2.0python3.10.____cpython:
-        CONFIG: linux_64_epicscorelibs7.0.6.99.2.0python3.10.____cpython
+      linux_64_epicscorelibs7.0.4.99.1.2numpy1.23python3.11.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.4.99.1.2numpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_epicscorelibs7.0.6.99.2.0python3.8.____cpython:
-        CONFIG: linux_64_epicscorelibs7.0.6.99.2.0python3.8.____cpython
+      linux_64_epicscorelibs7.0.6.99.2.0numpy1.22python3.10.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.6.99.2.0numpy1.22python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_epicscorelibs7.0.6.99.2.0python3.9.____cpython:
-        CONFIG: linux_64_epicscorelibs7.0.6.99.2.0python3.9.____cpython
+      linux_64_epicscorelibs7.0.6.99.2.0numpy1.22python3.8.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.6.99.2.0numpy1.22python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_epicscorelibs7.0.7.99.0.0python3.10.____cpython:
-        CONFIG: linux_64_epicscorelibs7.0.7.99.0.0python3.10.____cpython
+      linux_64_epicscorelibs7.0.6.99.2.0numpy1.22python3.9.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.6.99.2.0numpy1.22python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_epicscorelibs7.0.7.99.0.0python3.8.____cpython:
-        CONFIG: linux_64_epicscorelibs7.0.7.99.0.0python3.8.____cpython
+      linux_64_epicscorelibs7.0.6.99.2.0numpy1.23python3.11.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.6.99.2.0numpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_epicscorelibs7.0.7.99.0.0python3.9.____cpython:
-        CONFIG: linux_64_epicscorelibs7.0.7.99.0.0python3.9.____cpython
+      linux_64_epicscorelibs7.0.7.99.0.0numpy1.22python3.10.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.7.99.0.0numpy1.22python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_epicscorelibs7.0.7.99.0.0numpy1.22python3.8.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.7.99.0.0numpy1.22python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_epicscorelibs7.0.7.99.0.0numpy1.22python3.9.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.7.99.0.0numpy1.22python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_epicscorelibs7.0.7.99.0.0numpy1.23python3.11.____cpython:
+        CONFIG: linux_64_epicscorelibs7.0.7.99.0.0numpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
   timeoutInMinutes: 360
 
   steps:
-  - script: |
-         rm -rf /opt/ghc
-         df -h
-    displayName: Manage disk space
-
   # configure qemu binfmt-misc running.  This allows us to run docker containers
   # embedded qemu-static
   - script: |
