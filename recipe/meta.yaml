@@ -1,5 +1,5 @@
 {% set name = "p4p" %}
-{% set version = "3.5.5" %}
+{% set version = "4.1.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0fc35bb3ad6b8e2c48d5f94ca1a18d60a763993384d03204d814ac63b7aa7ee1
+  sha256: f95f2395e7658cb8493b764ddf85922ee7db52eb50b2e0caf3e84ed420c7e8d9
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
