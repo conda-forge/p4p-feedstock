@@ -10,12 +10,13 @@ source:
   sha256: 0fc35bb3ad6b8e2c48d5f94ca1a18d60a763993384d03204d814ac63b7aa7ee1
 
 build:
-  number: 2
+  number: 3
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -31,7 +32,6 @@ requirements:
     - cython
     - epicscorelibs {{ epicscorelibs }}
     - nose >=1.1.2
-    - {{ pin_compatible('numpy') }}
     - ply
 
 test:
