@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '16'
 epicscorelibs:
-- 7.0.7.99.0.0
+- 7.0.7.99.0.2
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
