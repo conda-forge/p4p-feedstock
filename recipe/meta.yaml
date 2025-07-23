@@ -39,13 +39,13 @@ test:
     - p4p
 
 about:
-  home: http://github.com/mdavidsaver/p4p
+  home: https://github.com/epics-base/p4p
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: Python bindings for the PVAccess network client and server.
-  doc_url: https://mdavidsaver.github.io/p4p/
-  dev_url: https://github.com/mdavidsaver/p4p
+  doc_url: https://epics-base.github.io/p4p/
+  dev_url: https://github.com/epics-base/p4p
 
 extra:
   recipe-maintainers:
