@@ -26,6 +26,7 @@ requirements:
   host:
     - pvxs
     - python
+    - setuptools
     - cython
     - {{ pin_compatible('numpy') }}
     - ply
