@@ -6,5 +6,6 @@ EOF
 
 make -j ${CPU_COUNT}
 
+install -d ${PREFIX}/bin/
 mv ${SRC_DIR}/python*/${EPICS_HOST_ARCH}/p4p ${SP_DIR}/
 mv ${SRC_DIR}/bin/${EPICS_HOST_ARCH}/pvagw ${PREFIX}/bin
