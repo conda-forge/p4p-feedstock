@@ -1,51 +1,61 @@
 {% set name = "p4p" %}
-{% set version = "3.5.5" %}
+{% set version = "4.2.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0fc35bb3ad6b8e2c48d5f94ca1a18d60a763993384d03204d814ac63b7aa7ee1
+  url: https://github.com/epics-base/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 2b89d7605ae35dc7edad2a36cf6b1d395170698b6d7fdfc3811a8d3ed5183bab
+  patches:
+    - patch/fix_sys_libs.patch
 
 build:
-  number: 2
-  script: {{ PYTHON }} -m pip install . -vv
+  skip: True  # [win]
+  number: 0
+  entry_points:
+    - pvagw = p4p.gw:main
 
 requirements:
   build:
+    - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
   host:
+    - pvxs
     - python
-    - cython
-    - epicscorelibs {{ epicscorelibs }}
-    - numpy
-    - pip
-    - ply
     - setuptools
-    - setuptools_dso
-  run:
-    - python
     - cython
-    - epicscorelibs {{ epicscorelibs }}
-    - nose >=1.1.2
     - {{ pin_compatible('numpy') }}
     - ply
+  run:
+    - python
+    - {{ pin_compatible('numpy') }}
+    - ply
+    - pvxs
 
 test:
+  requires:
+    - nose2
   imports:
     - p4p
+    - p4p.client.thread
+    - p4p.server
+  commands:
+    - pvagw --help
+    - python -m p4p.client.cli -h
+    - python -m nose2 p4p
 
 about:
-  home: http://github.com/mdavidsaver/p4p
+  home: https://github.com/epics-base/p4p
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: Python bindings for the PVAccess network client and server.
-  doc_url: https://mdavidsaver.github.io/p4p/
-  dev_url: https://github.com/mdavidsaver/p4p
+  doc_url: https://epics-base.github.io/p4p/
+  dev_url: https://github.com/epics-base/p4p
 
 extra:
   recipe-maintainers:
