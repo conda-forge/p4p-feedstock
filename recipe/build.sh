@@ -4,6 +4,12 @@ cat <<EOF > configure/RELEASE.local
 EPICS_BASE=${EPICS_BASE}
 EOF
 
+if [[ "$target_platform" == "osx-arm64" ]]; then
+  export EPICS_HOST_ARCH="darwin-aarch64"
+else
+  export EPICS_HOST_ARCH=$(perl ${EPICS_BASE}/lib/perl/EpicsHostArch.pl)
+fi
+
 make -j ${CPU_COUNT}
 
 install -d ${PREFIX}/bin/
