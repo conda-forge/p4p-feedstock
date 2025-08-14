@@ -12,7 +12,7 @@ source:
     - patch/fix_sys_libs.patch
 
 build:
-  number: 1
+  number: 2
   entry_points:
     - pvagw = p4p.gw:main
 
