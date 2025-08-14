@@ -1,0 +1,16 @@
+diff --git a/makehelper.py b/makehelper.py
+index f920bcc..c73678a 100644
+--- a/makehelper.py
++++ b/makehelper.py
+@@ -42,8 +42,9 @@ def get_numpy_include_dirs():
+ 
+ incdirs = get_numpy_include_dirs() + incdirs
+ 
+-print('TARGET_CFLAGS +=',get_config_var('BASECFLAGS'), file=out)
+-print('TARGET_CXXFLAGS +=',get_config_var('BASECFLAGS'), file=out)
++basecflags = get_config_var('BASECFLAGS') or ''
++print('TARGET_CFLAGS +=',basecflags, file=out)
++print('TARGET_CXXFLAGS +=',basecflags, file=out)
+ 
+ print('PY_VER :=',get_config_var('VERSION'), file=out)
+ ldver = get_config_var('LDVERSION')
