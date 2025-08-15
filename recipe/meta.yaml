@@ -9,7 +9,7 @@ source:
   url: https://github.com/epics-base/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: 2b89d7605ae35dc7edad2a36cf6b1d395170698b6d7fdfc3811a8d3ed5183bab
   patches:
-    - patch/fix_sys_libs.patch
+    - patch/fix_sys_libs.patch  # [not win]
 
 build:
   number: 2
