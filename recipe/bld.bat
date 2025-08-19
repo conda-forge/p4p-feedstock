@@ -26,6 +26,8 @@ for /d %%P in ("%SRC_DIR%\python*") do (
   if errorlevel 8 exit /b 1
 )
 
+copy "%SRC_DIR%\bin\%EPICS_HOST_ARCH%\*.dll" "%SP_DIR%\p4p\" >nul
+
 mkdir "%PREFIX%\Library\bin"
 copy "%SRC_DIR%\bin\%EPICS_HOST_ARCH%\pvagw.exe" "%PREFIX%\Library\bin\" >nul
 
