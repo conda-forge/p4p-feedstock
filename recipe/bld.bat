@@ -8,6 +8,8 @@ if "%ARCH%"=="32" (
 )
 
 echo EPICS_BASE=%EPICS_BASE%> configure\RELEASE.local
+echo PVXS=%PREFIX%>> configure\RELEASE.local
+echo USR_LDFLAGS+=-L%PREFIX%\lib>> configure\CONFIG_SITE.local
 
 set "SCRIPTS=" & :: avoid python-scripts masking make
 set "PATH=%BUILD_PREFIX%\Library\bin;%BUILD_PREFIX%\Library\usr\bin;%PATH%"
