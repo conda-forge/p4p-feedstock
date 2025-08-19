@@ -12,7 +12,7 @@ echo PVXS=%PREFIX%>> configure\RELEASE.local
 echo USR_LDFLAGS+=-L%PREFIX%\lib>> configure\CONFIG_SITE.local
 
 set "SCRIPTS=" & :: avoid python-scripts masking make
-set "PATH=%BUILD_PREFIX%\Library\bin;%BUILD_PREFIX%\Library\usr\bin;%PATH%"
+set "PATH=%PATH%;%BUILD_PREFIX%\Library\bin;%BUILD_PREFIX%\Library\usr\bin"
 
 make -j %CPU_COUNT%
 if errorlevel 1 (
