@@ -11,6 +11,7 @@ source:
   patches:
     - patch/fix_sys_libs.patch
     - patch/fix_makehelper_basecflags_none.patch
+    - patch/fix_makehelper_windows_extension.patch
 
 build:
   number: 2

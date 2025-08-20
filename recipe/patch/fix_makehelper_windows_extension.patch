@@ -1,0 +1,18 @@
+diff --git a/makehelper.py b/makehelper.py
+index f920bcc..c73678a 100644
+--- a/makehelper.py
++++ b/makehelper.py
+@@ -69,6 +69,13 @@ try:
+ else:
+     print('HAVE_COTHREAD := YES', file=out)
+ 
++import platform
++if platform.system() == "Windows":
++    print("LOADABLE_SHRLIB_SUFFIX := .pyd", file=out)
++    print("LOADABLE_SHRLIB_LDFLAGS := ", file=out)
++else:
++    print("LOADABLE_SHRLIB_SUFFIX := .so", file=out)
++
+ print('PY_OK := YES', file=out)
+ 
+ out.close()
