@@ -26,17 +26,17 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
-    - {{ pin_compatible('numpy') }}          # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
   host:
     - python
     - setuptools
     - cython
-    - {{ pin_compatible('numpy') }}
+    - numpy
     - ply
     - pvxs
   run:
     - python
-    - {{ pin_compatible('numpy') }}
+    - numpy
     - ply
     - pvxs
 
