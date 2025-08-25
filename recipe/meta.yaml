@@ -16,7 +16,7 @@ source:
 build:
   skip: True  # [win]
   number: 3
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
 
 requirements:
   build:
@@ -37,7 +37,6 @@ requirements:
     - cython
     - numpy
     - ply
-    - epics-base
     - pvxs
   run:
     - python
@@ -55,7 +54,7 @@ test:
   commands:
     - pvagw --help
     - python -m p4p.client.cli -h
-    - python -m nose2 p4p
+    - python -m nose2 -v p4p
 
 about:
   home: https://github.com/epics-base/p4p
