@@ -6,16 +6,17 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/epics-base/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 2b89d7605ae35dc7edad2a36cf6b1d395170698b6d7fdfc3811a8d3ed5183bab
-  patches:
-    - patch/fix_sys_libs.patch
+  - url: https://github.com/epics-base/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+    sha256: 2b89d7605ae35dc7edad2a36cf6b1d395170698b6d7fdfc3811a8d3ed5183bab
+    patches:
+      - patch/fix_sys_libs.patch
+      - patch/update_setup_config.patch
+  - path: src
 
 build:
   skip: True  # [win]
-  number: 2
-  entry_points:
-    - pvagw = p4p.gw:main
+  number: 3
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
 
 requirements:
   build:
@@ -30,7 +31,9 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
   host:
     - python
+    - pip
     - setuptools
+    - setuptools_dso
     - cython
     - numpy
     - ply
@@ -51,7 +54,7 @@ test:
   commands:
     - pvagw --help
     - python -m p4p.client.cli -h
-    - python -m nose2 p4p
+    - python -m nose2 -v p4p
 
 about:
   home: https://github.com/epics-base/p4p
