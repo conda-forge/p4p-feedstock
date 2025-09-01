@@ -1,0 +1,31 @@
+From d18016a9d6cadf04ee62aa88383aaa1974034ac5 Mon Sep 17 00:00:00 2001
+From: Anders Lindh Olsson <anders.lindholsson@ess.eu>
+Date: Mon, 1 Sep 2025 10:05:36 +0200
+Subject: [PATCH] Handle case where no implicit loop is created
+
+See https://github.com/python/cpython/issues/126353
+---
+ src/p4p/test/asynciotest.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/src/p4p/test/asynciotest.py b/src/p4p/test/asynciotest.py
+index 95e17a0..066461b 100644
+--- a/src/p4p/test/asynciotest.py
++++ b/src/p4p/test/asynciotest.py
+@@ -23,7 +23,12 @@ __all__ = (
+ )
+ 
+ # we should never implicitly use the default loop.
+-asyncio.get_event_loop().close()
++try:
++    loop = asyncio.get_event_loop()
++except RuntimeError:
++    pass  # no default loop exists (Python>=3.14)
++else:
++    loop.close()
+ 
+ class AsyncMeta(type):
+     """Automatically wrap and "async def test*():" methods for dispatch to self.loop
+-- 
+2.47.1
+
