@@ -11,7 +11,7 @@ source:
     patches:
       - patch/fix_sys_libs.patch
       - patch/update_setup_config.patch
-      - patch/0001-Handle-case-where-no-implicit-loop-is-created.patch
+      - patch/handle_no_default_asyncio_loop.patch
   - path: src
 
 build:
