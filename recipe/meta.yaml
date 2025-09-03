@@ -11,11 +11,12 @@ source:
     patches:
       - patch/fix_sys_libs.patch
       - patch/update_setup_config.patch
+      - patch/handle_no_default_asyncio_loop.patch
   - path: src
 
 build:
   skip: True  # [win]
-  number: 3
+  number: 4
   script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
 
 requirements:
