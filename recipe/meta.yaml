@@ -15,8 +15,7 @@ source:
   - path: src
 
 build:
-  skip: True  # [win]
-  number: 5
+  number: 6
   script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
 
 requirements:
@@ -39,11 +38,13 @@ requirements:
     - numpy
     - ply
     - pvxs
+    - epics-base
   run:
     - python
     - numpy
     - ply
     - pvxs
+    - epics-base
 
 test:
   requires:
