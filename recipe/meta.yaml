@@ -16,7 +16,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 4
+  number: 5
   script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
 
 requirements:
