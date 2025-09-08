@@ -1,8 +1,8 @@
 diff --git a/setup.py b/setup.py
-index a348dba..f942cc0 100755
+index a348dba..db06192 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -8,14 +8,7 @@ import sysconfig
+@@ -8,13 +8,7 @@ import sysconfig
  from setuptools_dso import Extension, setup, cythonize
  
  import numpy
@@ -13,89 +13,90 @@ index a348dba..f942cc0 100755
 -
 -import pvxslibs.path
 -import pvxslibs.version
--
 +from config import get_config_var
  
+ 
  def get_numpy_include_dirs():
-     return [numpy.get_include()]
-@@ -27,8 +20,29 @@ with open('src/p4p/version.py', 'r') as F:
+@@ -27,6 +21,37 @@ with open('src/p4p/version.py', 'r') as F:
      package_version = str(lcl['version'])
      del lcl
  
-+_cmplr_class = get_config_var('CMPLR_CLASS')
-+_os_class = get_config_var('OS_CLASS')
-+_ta = get_config_var('T_A')
-+if _cmplr_class is None:
-+    raise NotImplementedError("CMPLR_CLASS is not defined")
-+if _os_class is None:
-+    raise NotImplementedError("OS_CLASS is not defined")
-+if _ta is None:
-+    raise NotImplementedError("T_A is not defined")
++_cmplr_class, _os_class, _ta = map(get_config_var, ['CMPLR_CLASS', 'OS_CLASS', 'T_A'])
++if None in (_cmplr_class, _os_class, _ta):
++    raise NotImplementedError("Required config variables not defined")
++
 +_epics_path = os.getenv("EPICS_BASE")
-+
-+epics_cppflags = get_config_var('CPPFLAGS') or []
-+epics_cxxflags = get_config_var('CXXFLAGS') or []
-+_ldflags = get_config_var('LDFLAGS') or []
-+epics_ldflags = _ldflags + [f"-Wl,-rpath,{_epics_path}/lib/{_ta}", f"-L{_epics_path}/lib/{_ta}", "-lCom"]
-+epics_inc_paths = [f"{_epics_path}/include", f"{_epics_path}/include/compiler/{_cmplr_class}", f"{_epics_path}/include/os/{_os_class}"]
-+
 +_pvxs_path = os.getenv("PVXS")
-+pvxs_ldflags = [f"-L{_pvxs_path}/lib/{_ta}", "-lpvxs"]
-+pvxs_inc_path = f"{_pvxs_path}/include"
++
++epics_inc_paths = [
++    os.path.join(_epics_path, 'include'),
++    os.path.join(_epics_path, 'include', 'compiler', _cmplr_class),
++    os.path.join(_epics_path, 'include', 'os', _os_class)
++]
++
++pvxs_inc_path = os.path.join(_pvxs_path, 'include')
++
++libraries = (get_config_var('LDADD') or []) + ['pvxs', 'Com']
++
++conda_prefix = os.environ.get('PREFIX')
++library_dirs = [
++    os.path.join(conda_prefix, 'lib'),
++    os.path.join(_epics_path, 'lib', _ta),
++    os.path.join(_pvxs_path, 'lib', _ta)
++]
++
++extra_link_args_base = get_config_var('LDFLAGS') or []
++if not get_config_var('CMPLR_CLASS') == 'msvc':
++    extra_link_args_base.extend([
++        f"-Wl,-rpath,{_epics_path}/lib/{_ta}",
++        f"-Wl,-rpath,{_pvxs_path}/lib/{_ta}"
++    ])
 +
  cxxflags = []
--if get_config_var('CMPLR_CLASS') in ('gcc', 'clang'):
-+if _cmplr_class in ('gcc', 'clang'):
+ if get_config_var('CMPLR_CLASS') in ('gcc', 'clang'):
      cxxflags += ['-std=c++11']
- ldflags = []
- import sys
-@@ -49,7 +63,7 @@ elif platform.system()=='Darwin':
- # Our internal interfaces with generated cython
- # are all c++, and MSVC doesn't allow extern "C" to
- # return c++ types.
--cppflags = get_config_var('CPPFLAGS') + [('__PYX_EXTERN_C','extern')]
-+cppflags = epics_cppflags + [('__PYX_EXTERN_C','extern')]
- 
- exts = cythonize([
-     Extension(
-@@ -62,16 +76,13 @@ exts = cythonize([
+@@ -62,17 +87,15 @@ exts = cythonize([
              "src/pvxs_type.cpp",
              "src/pvxs_value.cpp",
          ],
 -        include_dirs = get_numpy_include_dirs()+[epicscorelibs.path.include_path, pvxslibs.path.include_path, 'src', 'src/p4p'],
-+        include_dirs = get_numpy_include_dirs()+epics_inc_paths+[pvxs_inc_path, 'src', 'src/p4p'],
++        include_dirs = get_numpy_include_dirs() + epics_inc_paths + [pvxs_inc_path, 'src', 'src/p4p'],
          define_macros = cppflags + [
              ('PY_ARRAY_UNIQUE_SYMBOL', 'PVXS_PyArray_API'),
              ('PVXS_ENABLE_EXPERT_API', None),
          ],
--        extra_compile_args = get_config_var('CXXFLAGS')+cxxflags,
+         extra_compile_args = get_config_var('CXXFLAGS')+cxxflags,
 -        extra_link_args = get_config_var('LDFLAGS')+ldflags,
 -        dsos = ['pvxslibs.lib.pvxs',
 -                'epicscorelibs.lib.Com'
 -        ],
-+        extra_compile_args = epics_cxxflags+cxxflags,
-+        extra_link_args = epics_ldflags+pvxs_ldflags+ldflags,
-         libraries = get_config_var('LDADD'),
+-        libraries = get_config_var('LDADD'),
++        extra_link_args = extra_link_args_base + ldflags,
++        library_dirs = library_dirs,
++        libraries = libraries,
      ),
      Extension(
-@@ -81,13 +92,10 @@ exts = cythonize([
+         name='p4p._gw',
+@@ -81,14 +104,12 @@ exts = cythonize([
              'src/pvxs_gw.cpp',
              'src/pvxs_odometer.cpp'
          ],
 -        include_dirs = get_numpy_include_dirs()+[epicscorelibs.path.include_path, pvxslibs.path.include_path, 'src', 'src/p4p'],
-+        include_dirs = get_numpy_include_dirs()+epics_inc_paths+[pvxs_inc_path, 'src', 'src/p4p'],
++        include_dirs = get_numpy_include_dirs() + epics_inc_paths + [pvxs_inc_path, 'src', 'src/p4p'],
          define_macros = cppflags + [('PVXS_ENABLE_EXPERT_API', None)],
--        extra_compile_args = get_config_var('CXXFLAGS')+cxxflags,
+         extra_compile_args = get_config_var('CXXFLAGS')+cxxflags,
 -        extra_link_args = get_config_var('LDFLAGS')+ldflags,
 -        dsos = ['pvxslibs.lib.pvxs',
 -                'epicscorelibs.lib.Com'
 -        ],
-+        extra_compile_args = epics_cxxflags+cxxflags,
-+        extra_link_args = epics_ldflags+pvxs_ldflags+ldflags,
-         libraries = get_config_var('LDADD'),
+-        libraries = get_config_var('LDADD'),
++        extra_link_args = extra_link_args_base + ldflags,
++        library_dirs = library_dirs,
++        libraries = libraries,
      )
  ])
-@@ -96,8 +104,6 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as F:
+ 
+@@ -96,8 +117,6 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as F:
      long_description = F.read()
  
  install_requires = [

@@ -15,8 +15,7 @@ source:
   - path: src
 
 build:
-  skip: True  # [win]
-  number: 5
+  number: 6
   script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
 
 requirements:
@@ -39,11 +38,13 @@ requirements:
     - numpy
     - ply
     - pvxs
+    - epics-base
   run:
     - python
     - numpy
     - ply
     - pvxs
+    - epics-base
 
 test:
   requires:
@@ -53,7 +54,7 @@ test:
     - p4p.client.thread
     - p4p.server
   commands:
-    - pvagw --help
+    - pvagw --help  # [not win]
     - python -m p4p.client.cli -h
     - python -m nose2 -v p4p
 
