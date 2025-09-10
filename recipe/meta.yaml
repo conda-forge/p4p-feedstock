@@ -15,7 +15,7 @@ source:
   - path: src
 
 build:
-  number: 6
+  number: 7
   script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
 
 requirements:
@@ -54,7 +54,7 @@ test:
     - p4p.client.thread
     - p4p.server
   commands:
-    - pvagw --help  # [not win]
+    - pvagw --help
     - python -m p4p.client.cli -h
     - python -m nose2 -v p4p
 

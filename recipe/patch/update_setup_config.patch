@@ -40,7 +40,7 @@ index a348dba..db06192 100755
 +
 +conda_prefix = os.environ.get('PREFIX')
 +library_dirs = [
-+    os.path.join(conda_prefix, 'lib'),
++    os.path.join(conda_prefix, 'Library', 'lib'),
 +    os.path.join(_epics_path, 'lib', _ta),
 +    os.path.join(_pvxs_path, 'lib', _ta)
 +]
