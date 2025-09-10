@@ -17,6 +17,8 @@ source:
 build:
   number: 7
   script: {{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
+  entry_points:
+    - pvagw = p4p.gw:main
 
 requirements:
   build:
