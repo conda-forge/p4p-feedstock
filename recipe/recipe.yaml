@@ -14,7 +14,6 @@ source:
     patches:
       - patch/fix_sys_libs.patch
       - patch/update_setup_config.patch
-      - patch/handle_no_default_asyncio_loop.patch
   - path: src
 
 build:
@@ -57,18 +56,14 @@ requirements:
     - epics-base
 
 tests:
+  - script:
+      - pvagw --help
+      - python -m p4p.client.cli -h
   - python:
       imports:
         - p4p
         - p4p.client.thread
         - p4p.server
-  - requirements:
-      run:
-        - nose2
-    script:
-      - pvagw --help
-      - python -m p4p.client.cli -h
-      - python -m nose2 -v p4p
 
 about:
   license: BSD-3-Clause

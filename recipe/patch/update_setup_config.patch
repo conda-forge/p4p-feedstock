@@ -102,6 +102,6 @@ index a348dba..db06192 100755
  install_requires = [
 -    epicscorelibs.version.abi_requires(),
 -    pvxslibs.version.abi_requires(),
-     'nose2>=0.8.0',
+-    'nose2>=0.8.0',
      'ply', # for asLib
  ]
