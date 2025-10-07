@@ -1,0 +1,80 @@
+schema_version: 1
+
+context:
+  name: p4p
+  version: 4.2.0
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  - url: https://github.com/epics-base/${{ name }}/archive/refs/tags/${{ version }}.tar.gz
+    sha256: 2b89d7605ae35dc7edad2a36cf6b1d395170698b6d7fdfc3811a8d3ed5183bab
+    patches:
+      - patch/fix_sys_libs.patch
+      - patch/update_setup_config.patch
+  - path: src
+
+build:
+  number: 8
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
+  python:
+    entry_points:
+      - pvagw = p4p.gw:main
+
+requirements:
+  build:
+    - make
+    - perl
+    - ${{ compiler('cxx') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cython
+        - numpy
+  host:
+    - python
+    - pip
+    - setuptools
+    - setuptools_dso
+    - cython
+    - numpy
+    - ply
+    - pvxs
+    - epics-base
+  run:
+    - python
+    - numpy
+    - ply
+    - pvxs
+    - epics-base
+
+tests:
+  - script:
+      - pvagw --help
+      - python -m p4p.client.cli -h
+  - python:
+      imports:
+        - p4p
+        - p4p.client.thread
+        - p4p.server
+
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: Python bindings for the PVAccess network client and server.
+  homepage: https://github.com/epics-base/p4p
+  repository: https://github.com/epics-base/p4p
+  documentation: https://epics-base.github.io/p4p/
+
+extra:
+  recipe-maintainers:
+    - anderslindho
+    - simon-ess
+    - valmar
+    - chrisvam
+    - klauer
