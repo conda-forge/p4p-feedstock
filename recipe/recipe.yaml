@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: p4p
-  version: 4.2.0
+  version: "4.2.1"
 
 package:
   name: ${{ name }}
@@ -10,14 +10,14 @@ package:
 
 source:
   - url: https://github.com/epics-base/${{ name }}/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 2b89d7605ae35dc7edad2a36cf6b1d395170698b6d7fdfc3811a8d3ed5183bab
+    sha256: 789d2174e13bd4d040d934006e32ebf588c6b0649e50993df1f368b3c28d949f
     patches:
       - patch/fix_sys_libs.patch
       - patch/update_setup_config.patch
   - path: src
 
 build:
-  number: 8
+  number: 0
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
   python:
     entry_points:
