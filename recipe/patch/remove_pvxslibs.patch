@@ -1,0 +1,19 @@
+diff --git a/src/p4p/__init__.py b/src/p4p/__init__.py
+index 2508506..dbfd106 100644
+--- a/src/p4p/__init__.py
++++ b/src/p4p/__init__.py
+@@ -2,14 +2,6 @@ import logging
+ import sys
+ import atexit
+ 
+-try:
+-    # give a chance to adjust DSO loader path
+-    import epicscorelibs
+-except ImportError:
+-    pass
+-else:
+-    import epicscorelibs.path
+-    import pvxslibs.path
+ 
+ from .wrapper import Value, Type
+ from ._p4p import (version as pvxsVersion, listRefs, logger_level_set as _logger_level_set)
