@@ -14,10 +14,11 @@ source:
     patches:
       - patch/fix_sys_libs.patch
       - patch/update_setup_config.patch
+      - patch/remove_pvxslibs.patch
   - path: src
 
 build:
-  number: 9
+  number: 10
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
   python:
     entry_points:
