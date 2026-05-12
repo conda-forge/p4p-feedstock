@@ -18,7 +18,7 @@ source:
   - path: src
 
 build:
-  number: 2
+  number: 3
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
   python:
     entry_points:
@@ -58,6 +58,10 @@ tests:
   - script:
       - pvagw --help
       - python -m p4p.client.cli -h
+      - python -m nose2 p4p
+    requirements:
+      run:
+        - nose2
   - python:
       imports:
         - p4p
