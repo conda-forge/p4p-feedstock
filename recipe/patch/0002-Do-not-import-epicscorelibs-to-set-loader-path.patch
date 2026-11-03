@@ -1,9 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anders Lindh Olsson <anders.lindh.olsson@gmail.com>
+Date: Tue, 3 Nov 2026 11:31:07 +0100
+Subject: [PATCH 2/3] Do not import `epicscorelibs` to set loader path
+
+Only needed for the PyPI wheels.
+---
+ src/p4p/__init__.py | 8 --------
+ 1 file changed, 8 deletions(-)
+
 diff --git a/src/p4p/__init__.py b/src/p4p/__init__.py
-index 2508506..dbfd106 100644
+index 63e62ed..1454fd9 100644
 --- a/src/p4p/__init__.py
 +++ b/src/p4p/__init__.py
-@@ -2,14 +2,6 @@ import logging
- import sys
+@@ -1,14 +1,6 @@
+ import logging
  import atexit
  
 -try:

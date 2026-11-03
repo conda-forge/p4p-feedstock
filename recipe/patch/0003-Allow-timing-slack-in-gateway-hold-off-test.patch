@@ -1,0 +1,36 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anders Lindh Olsson <anders.lindh.olsson@gmail.com>
+Date: Tue, 3 Nov 2026 12:16:28 +0100
+Subject: [PATCH 3/3] Allow timing slack in gateway hold-off test
+
+The hold-off timer and `time.monotonic()` can disagree by about a
+millisecond on Windows. The failing test leaves a client context
+behind, which then fails every later test.
+---
+ src/p4p/test/test_gw.py | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/p4p/test/test_gw.py b/src/p4p/test/test_gw.py
+index cdf93d4..541936b 100644
+--- a/src/p4p/test/test_gw.py
++++ b/src/p4p/test/test_gw.py
+@@ -549,6 +549,8 @@ class TestHighLevelChained(TestHighLevel):
+ 
+ class TestHighLevelGetHoldOff(TestHighLevel):
+     getholdoff = 1 # hopefully long enough for CI without exceeding my patience
++    # the hold-off timer and monotonic() may disagree slightly (eg. on Windows)
++    slack = 0.05
+ 
+     def test_get_holdoff(self):
+         N = 1 # shadow odometer counter
+@@ -571,8 +573,8 @@ class TestHighLevelGetHoldOff(TestHighLevel):
+ 
+             self.assertTrue(Vmin==N and
+                             Vmax<=N+1 and
+-                            T2-T1 >= self.getholdoff and
+-                            T2-T0 >= (Vmax - Vmin + 1) * self.getholdoff,
++                            T2-T1 >= self.getholdoff - self.slack and
++                            T2-T0 >= (Vmax - Vmin + 1) * self.getholdoff - self.slack,
+                             "%.3f, %.3f : %d %s"%(T1-T0, T2-T0, N, Vs))
+ 
+             N = Vmax+1
