@@ -96,7 +96,7 @@ index a348dba..db06192 100755
      )
  ])
  
-@@ -96,8 +117,6 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as F:
+@@ -96,8 +117,5 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as F:
      long_description = F.read()
  
  install_requires = [
