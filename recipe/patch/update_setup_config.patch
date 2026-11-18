@@ -9,11 +9,10 @@ index a348dba..db06192 100755
 -
 -import epicscorelibs.path
 -import epicscorelibs.version
--from epicscorelibs.config import get_config_var
+ from epicscorelibs.config import get_config_var
 -
 -import pvxslibs.path
 -import pvxslibs.version
-+from config import get_config_var
  
  
  def get_numpy_include_dirs():

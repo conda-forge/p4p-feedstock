@@ -15,10 +15,9 @@ source:
       - patch/fix_sys_libs.patch
       - patch/update_setup_config.patch
       - patch/remove_pvxslibs.patch
-  - path: src
 
 build:
-  number: 3
+  number: 4
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
   python:
     entry_points:
@@ -42,6 +41,7 @@ requirements:
     - pip
     - setuptools
     - setuptools_dso
+    - epicscorelibs >=7.0.10.99.0.2
     - cython
     - numpy
     - ply
